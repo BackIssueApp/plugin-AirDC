@@ -1,7 +1,8 @@
 {
-    "name":  "airdcpp",
-    "version":  "1.0.0",
-    "description":  "Direct Connect download source via the AirDC++ Web API, with adaptive search and multi-issue filelist packs",
-    "type":  "module",
-    "private":  true
+  "name": "airdcpp",
+  "version": "1.0.0",
+  "description": "Direct Connect download source via the AirDC++ Web API, with adaptive search and multi-issue filelist packs",
+  "type": "module",
+  "private": true,
+  "license": "GPL-3.0-or-later"
 }
