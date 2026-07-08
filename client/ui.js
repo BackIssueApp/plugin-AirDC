@@ -22,6 +22,10 @@
           '<label class="field"><span>Hub URLs (optional)</span><input id="set-airdcppHubs" type="text" spellcheck="false" placeholder="adcs://hub.example:2780 (comma-separated)"></label>' +
           '<p class="modal__note">Limit searches to specific comic hubs (comma-separated). Blank searches every hub AirDC++ is connected to.</p>' +
 
+          '<p class="modal__subhead modal__subhead--sub">Announce bots</p>' +
+          '<label class="field"><span>Watch bot nicks</span><input id="set-airdcppWatchNicks" type="text" spellcheck="false" placeholder="UploadBot, Announce (comma-separated)"></label>' +
+          '<p class="modal__note">Hub bots (users) that announce new uploads with magnet links. Messages from these nicks — in main chat or PM — are scanned, and announced files matching a <b>missing issue of a followed series</b> download automatically by exact hash. Enable and schedule the check on the <b>Jobs</b> page ("Watch AirDC++ announcements").</p>' +
+
           '<p class="modal__subhead modal__subhead--sub">Completed files</p>' +
           '<label class="field"><span>Download folder (AirDC++\'s view)</span><input id="set-airdcppDownloadDirRemote" type="text" spellcheck="false" placeholder="/downloads/comics"></label>' +
           '<label class="field"><span>Download folder (this app\'s view)</span><input id="set-airdcppDownloadDir" type="text" spellcheck="false" placeholder="\\\\TOWER\\downloads\\comics"></label>' +

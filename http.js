@@ -110,6 +110,23 @@ export function makeAirClient(config) {
       return d ? d[key] : undefined;
     },
 
+    // ---- Hubs & chat (announce-bot watching) -------------------------------
+    // Connected hub sessions, a hub's recent main-chat messages, open PM
+    // sessions, and a PM session's recent messages. Message objects may arrive
+    // wrapped ({ chat_message: {...} }) — the watcher normalizes both forms.
+    async listHubs() {
+      return (await call('GET', '/hubs')) || [];
+    },
+    async hubMessages(hubId, count = 100) {
+      return (await call('GET', `/hubs/${hubId}/messages/${count}`)) || [];
+    },
+    async listPrivateChats() {
+      return (await call('GET', '/private_chat')) || [];
+    },
+    async privateMessages(sessionId, count = 100) {
+      return (await call('GET', `/private_chat/${sessionId}/messages/${count}`)) || [];
+    },
+
     // ---- Filelists (browse a peer's share directly — no hub search) --------
     // Open a PARTIAL filelist at one directory of a peer's share. Cheap: only
     // that folder is transferred. Returns the session (id == the user's CID).

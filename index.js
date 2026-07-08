@@ -9,10 +9,26 @@
 // AirDC++ copy is left in place so it keeps sharing).
 import { airdcpp } from './source.js';
 import { makeAirClient } from './http.js';
+import { runWatch } from './watch.js';
 import config from '../../src/config.js';
 
 export default function register(api) {
   api.registerSource(airdcpp);
+
+  // Announce-bot watching: poll messages from the configured bot nicks (their
+  // PMs and main-chat lines), parse the magnet links they announce, and queue
+  // any that match a missing issue of a followed series — grabbed by exact
+  // TTH. Enable + schedule on the Jobs page ("Watch AirDC++ announcements").
+  // register() runs before loadSettings(), so these defaults seed the schedule
+  // (every 15 min, like the host's RSS watch) while saved values still win.
+  config.airdcppWatchCron ??= '*/15 * * * *';
+  config.airdcppWatchEnabled ??= false;
+  api.registerJob?.({
+    id: 'airdcpp-watch',
+    label: 'Watch AirDC++ announcements',
+    scheduleKey: 'airdcppWatchHours',
+    run: (ctx) => runWatch(ctx || {}),
+  });
 
   api.registerSettings({
     airdcppEnabled: { type: 'bool' },
@@ -21,6 +37,11 @@ export default function register(api) {
     airdcppPass: { type: 'string', allowEmpty: true },
     // Comma-separated hub URLs to limit the search to (blank = all connected hubs).
     airdcppHubs: { type: 'string', allowEmpty: true },
+    // Announce-bot watching: the bot NICKS whose messages are scanned for
+    // magnet announcements, plus the schedule twins the Jobs page drives.
+    airdcppWatchNicks: { type: 'string', allowEmpty: true },
+    airdcppWatchCron: { type: 'string', allowEmpty: true },
+    airdcppWatchEnabled: { type: 'bool' },
     // Where finished downloads land — AirDC++'s own filesystem view.
     airdcppDownloadDirRemote: { type: 'string', allowEmpty: true },
     // The same folder as THIS app reads it (e.g. over SMB). Blank = same as remote.

@@ -13,6 +13,7 @@ import config from '../../src/config.js';
 import { scoreRelease, suspiciouslySmall, manualQueries, manualTarget, normalizeSeries } from '../../src/sources/usenet.js';
 import { seriesCollectionDetail } from '../../src/db.js';
 import { makeAirClient } from './http.js';
+import { takeHint } from './watch.js';
 
 const COMIC_EXT = new Set(['cbr', 'cbz']);
 const waitMs = () => Number(config.airdcppSearchWaitMs) || 12000;
@@ -230,6 +231,21 @@ export const airdcpp = {
     const best = (results) => results.filter(matches)
       .map((m) => ({ m, score: scoreRelease(m.name, target) }))
       .sort((a, b) => b.score - a.score || (b.m.hits - a.m.hits) || (b.m.size - a.m.size))[0];
+
+    // Announce-watch fast path: the watcher saw a bot announce EXACTLY this
+    // issue with a magnet link — search by its TTH (DC's precise file id)
+    // instead of by name. Consumed once; any miss falls through to the normal
+    // name search below.
+    const cvm = /^cvissue:(\d+)$/.exec(String(ctx.issue?.url || ''));
+    const hint = cvm ? takeHint(Number(cvm[1])) : null;
+    if (hint) {
+      try {
+        const search = await runSearch(client, { pattern: hint.tth, fileType: 'tth', extensions: [], hubs: hubList() }, matches);
+        const hit = best(search.results);
+        if (hit) return { ...hit.m, query: hint.tth };
+        await client.removeSearchInstance(search.instanceId).catch(() => {});
+      } catch { /* fall through to name search */ }
+    }
 
     // One shared series search serves every issue of a bulk grab (see
     // seriesSearch). Its instance is SHARED — never removed here or after a
