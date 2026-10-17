@@ -1,0 +1,40 @@
+{
+  "intro": "Wyszukuj i pobieraj z hubów Direct Connect przez AirDC++ Web API. Dociera do materiałów, których nie mają indeksery ani serwisy DDL.",
+  "webApiUrl": "Adres Web API",
+  "username": "Nazwa użytkownika",
+  "password": "Hasło",
+  "testConnection": "Testuj połączenie",
+  "testing": "Testowanie…",
+  "hubUrls": "Adresy hubów (opcjonalnie)",
+  "hubUrlsPlaceholder": "adcs://hub.example:2780 (oddzielone przecinkami)",
+  "hubsNote": "Ogranicz wyszukiwania do wybranych hubów z komiksami (oddzielonych przecinkami). Puste pole oznacza wyszukiwanie we wszystkich hubach, z którymi połączony jest AirDC++.",
+  "announceBots": "Boty ogłoszeń",
+  "watchNicks": "Obserwowane nicki botów",
+  "watchNicksPlaceholder": "UploadBot, Announce (oddzielone przecinkami)",
+  "watchNote": "Boty hubów (użytkownicy), które ogłaszają nowe wysyłki linkami magnet. Wiadomości od tych nicków — na czacie głównym lub prywatnym — są skanowane, a ogłoszone pliki pasujące do <b>brakującego zeszytu obserwowanej serii</b> pobierają się automatycznie według dokładnego skrótu. Włącz i zaplanuj sprawdzanie na stronie <b>Zadania</b> („Watch AirDC++ announcements”).",
+  "completedFiles": "Ukończone pliki",
+  "downloadDirRemote": "Folder pobierania (z punktu widzenia AirDC++)",
+  "downloadDirLocal": "Folder pobierania (z punktu widzenia tej aplikacji)",
+  "downloadNote": "AirDC++ pobiera do pierwszej ścieżki; ta aplikacja importuje (kopiuje) z drugiej. Różnią się tylko wtedy, gdy AirDC++ działa na innej maszynie — zmapuj jego folder na ścieżkę, którą ta aplikacja czyta przez sieć. Kopia w AirDC++ zostaje na miejscu, więc nadal jest udostępniana.",
+  "search": "Wyszukiwanie",
+  "maxWait": "Maks. czas oczekiwania (ms)",
+  "giveUpEmpty": "Przerwij, gdy pusto (ms)",
+  "pollEvery": "Sprawdzaj co (ms)",
+  "cooldown": "Odstęp (ms)",
+  "retryEmpties": "Ponów puste",
+  "searchNote": "Wyniki DC napływają od użytkowników przez kilka sekund; wyszukiwanie kończy się, gdy tylko pojawi się pewne dopasowanie lub upłynie limit czasu. Wyszukiwanie, które nie zwróci <b>niczego</b> do czasu <b>Przerwij, gdy pusto</b>, kończy się w tym miejscu — użytkownicy udostępniający plik odpowiadają w ciągu kilku sekund, więc dalsza cisza oznacza, że pliku nie ma w DC (dzięki temu wyszukiwania rzadko udostępnianych zeszytów się nie wloką). Wyszukiwania działają <b>pojedynczo</b>, z odstępem — huby DC ograniczają liczbę zapytań, więc pobieranie hurtowe jest spowalniane (powoli, ale niezawodnie), zamiast kończyć się błędem. Puste wyszukiwanie można ponowić <b>Ponów puste</b> razy, ale <b>zostaw tu 1 (lub 0)</b>: wiele hubów uznaje to samo wyszukiwanie powtórzone ok. 3 razy za spam i i tak nic nie zwraca.",
+  "stallTimeout": "Limit zastoju pobierania (ms)",
+  "stallNote": "Porzuć pobieranie, które przez ten czas nie robi postępów — paczka bez seederów (lub usunięta przez AirDC++ z kolejki) może inaczej blokować miejsce w kolejce w nieskończoność.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Źródło pobierania Direct Connect przez AirDC++ Web API, z adaptacyjnym wyszukiwaniem i paczkami wielu zeszytów z list plików"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "Obserwuj ogłoszenia AirDC++"
+      }
+    }
+  }
+}

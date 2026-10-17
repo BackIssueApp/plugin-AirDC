@@ -1,0 +1,40 @@
+{
+  "intro": "通过 AirDC++ Web API 在 Direct Connect 集线器中搜索和下载。能找到索引器和 DDL 站点没有的资源。",
+  "webApiUrl": "Web API 地址",
+  "username": "用户名",
+  "password": "密码",
+  "testConnection": "测试连接",
+  "testing": "测试中…",
+  "hubUrls": "集线器地址（可选）",
+  "hubUrlsPlaceholder": "adcs://hub.example:2780（以逗号分隔）",
+  "hubsNote": "将搜索限定在特定的漫画集线器（以逗号分隔）。留空则搜索 AirDC++ 已连接的所有集线器。",
+  "announceBots": "公告机器人",
+  "watchNicks": "监视的机器人昵称",
+  "watchNicksPlaceholder": "UploadBot, Announce（以逗号分隔）",
+  "watchNote": "用磁力链接公告新上传的集线器机器人（用户）。会扫描这些昵称在主聊天或私信中发送的消息，与<b>已关注系列中缺失的期</b>匹配的公告文件会按精确哈希自动下载。请在<b>任务</b>页面启用并安排检查（“监视 AirDC++ 公告”）。",
+  "completedFiles": "已完成的文件",
+  "downloadDirRemote": "下载文件夹（AirDC++ 视角）",
+  "downloadDirLocal": "下载文件夹（本应用视角）",
+  "downloadNote": "AirDC++ 下载到第一个路径；本应用从第二个路径导入（复制）。只有当 AirDC++ 运行在另一台机器上时两者才不同——请将其文件夹映射到本应用通过网络读取的路径。AirDC++ 中的副本会保留，以便继续共享。",
+  "search": "搜索",
+  "maxWait": "最长等待（毫秒）",
+  "giveUpEmpty": "无结果时放弃（毫秒）",
+  "pollEvery": "轮询间隔（毫秒）",
+  "cooldown": "冷却时间（毫秒）",
+  "retryEmpties": "空结果重试次数",
+  "searchNote": "DC 的结果会在几秒内陆续从各节点返回；一旦出现可靠的匹配或达到等待上限，搜索就会结束。若到<b>无结果时放弃</b>仍<b>没有任何</b>结果，搜索就此停止——共享该文件的节点会在几秒内响应，持续沉默意味着它不在 DC 上（这样可以避免很少有人共享的期一直搜个不停）。搜索按冷却时间间隔<b>逐个</b>执行——DC 集线器有频率限制，因此批量下载会被放慢（慢但可靠），而不会失败。空结果的搜索可以重试<b>空结果重试次数</b>次，但<b>请保持为 1（或 0）</b>：许多集线器会把重复约 3 次的相同搜索视为垃圾信息，之后无论如何都不再返回结果。",
+  "stallTimeout": "下载停滞超时（毫秒）",
+  "stallNote": "下载在这段时间内毫无进展时放弃——没有做种者的包（或被 AirDC++ 移出队列的包）否则可能永远占用一个队列位置。",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "通过 AirDC++ Web API 的 Direct Connect 下载源，支持自适应搜索和基于文件列表的多期合集包"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "监视 AirDC++ 公告"
+      }
+    }
+  }
+}
