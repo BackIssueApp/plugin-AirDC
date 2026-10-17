@@ -24,5 +24,17 @@
   "retryEmpties": "Leere wiederholen",
   "searchNote": "DC-Ergebnisse treffen über einige Sekunden von Peers ein; die Suche endet, sobald ein sicherer Treffer kommt oder die Wartegrenze erreicht ist. Eine Suche, die bis <b>Aufgeben, wenn leer</b> <b>nichts</b> liefert, bricht ab — Peers einer geteilten Datei antworten binnen Sekunden, anhaltende Stille heißt also, sie ist nicht im DC (das verhindert, dass Suchen nach selten geteilten Heften ewig dauern). Suchen laufen <b>nacheinander</b> im Abstand der Abkühlzeit — DC-Hubs drosseln, also werden Massen-Downloads gebremst (langsam, aber zuverlässig) statt zu scheitern. Eine leere Suche kann <b>Leere wiederholen</b>-mal wiederholt werden, aber <b>bei 1 (oder 0) belassen</b>: viele Hubs werten dieselbe ~3-mal wiederholte Suche als Spam und liefern dann ohnehin nichts.",
   "stallTimeout": "Download-Stillstand (ms)",
-  "stallNote": "Einen Download aufgeben, der so lange keinen Fortschritt macht — ein Bündel ohne Quellen (oder eines, das AirDC++ aus seiner Warteschlange nimmt) würde sonst den Platz in der Warteschlange für immer blockieren."
+  "stallNote": "Einen Download aufgeben, der so lange keinen Fortschritt macht — ein Bündel ohne Quellen (oder eines, das AirDC++ aus seiner Warteschlange nimmt) würde sonst den Platz in der Warteschlange für immer blockieren.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Direct-Connect-Downloadquelle über die AirDC++-Web-API, mit adaptiver Suche und Mehr-Heft-Paketen aus Dateilisten"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "AirDC++-Ankündigungen beobachten"
+      }
+    }
+  }
 }

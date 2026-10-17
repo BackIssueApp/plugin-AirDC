@@ -24,5 +24,17 @@
   "retryEmpties": "Ritenta le vuote",
   "searchNote": "I risultati DC arrivano dai peer nell'arco di qualche secondo; la ricerca termina appena arriva una corrispondenza sicura o al raggiungimento del limite di attesa. Una ricerca che non restituisce <b>nulla</b> entro <b>Rinuncia se vuota</b> si ferma lì: i peer di un file condiviso rispondono in pochi secondi, quindi un silenzio prolungato significa che non è su DC (è ciò che evita che le ricerche di albi poco condivisi si trascinino). Le ricerche girano <b>una alla volta</b> distanziate dalla pausa: gli hub DC limitano la frequenza, quindi i download in massa vengono rallentati (lenti ma affidabili) invece di fallire. Una ricerca vuota può essere ritentata <b>Ritenta le vuote</b> volte, ma <b>lascia 1 (o 0)</b>: molti hub considerano la stessa ricerca ripetuta ~3 volte come spam e poi non restituiscono comunque nulla.",
   "stallTimeout": "Timeout download fermo (ms)",
-  "stallNote": "Rinuncia a un download che non progredisce per questo tempo: un bundle senza fonti (o uno che AirDC++ toglie dalla sua coda) bloccherebbe altrimenti lo slot della coda per sempre."
+  "stallNote": "Rinuncia a un download che non progredisce per questo tempo: un bundle senza fonti (o uno che AirDC++ toglie dalla sua coda) bloccherebbe altrimenti lo slot della coda per sempre.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Fonte di download Direct Connect tramite l’API web di AirDC++, con ricerca adattiva e pacchetti multi-albo dalle liste file"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "Controlla gli annunci AirDC++"
+      }
+    }
+  }
 }

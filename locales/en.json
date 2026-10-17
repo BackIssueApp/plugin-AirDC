@@ -24,5 +24,17 @@
   "retryEmpties": "Retry empties",
   "searchNote": "DC results arrive from peers over a few seconds; the search returns as soon as a confident match arrives, or when the wait cap is hit. A search that returns <b>nothing</b> by <b>Give up if empty</b> stops there — a shared file's peers reply within seconds, so continued silence means it isn't on DC (this is what keeps searches for rarely-shared issues from crawling). Searches run <b>one at a time</b> spaced by the cooldown — DC hubs rate-limit, so bulk downloads are throttled (slow but reliable) rather than failing. An empty search may be retried <b>Retry empties</b> times, but <b>keep this at 1 (or 0)</b>: many hubs flag the same search repeated ~3 times as spam and then return nothing anyway.",
   "stallTimeout": "Download stall timeout (ms)",
-  "stallNote": "Give up on a download that makes no progress for this long — a bundle with no seeders (or one AirDC++ drops from its queue) can otherwise stall the queue slot forever."
+  "stallNote": "Give up on a download that makes no progress for this long — a bundle with no seeders (or one AirDC++ drops from its queue) can otherwise stall the queue slot forever.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Direct Connect download source via the AirDC++ Web API, with adaptive search and multi-issue filelist packs"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "Watch AirDC++ announcements"
+      }
+    }
+  }
 }

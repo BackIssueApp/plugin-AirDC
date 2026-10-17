@@ -24,5 +24,17 @@
   "retryEmpties": "Réessais si vide",
   "searchNote": "Les résultats DC arrivent des pairs en quelques secondes ; la recherche se termine dès qu'une correspondance sûre arrive, ou quand l'attente max est atteinte. Une recherche qui ne renvoie <b>rien</b> à l'échéance <b>Abandon si vide</b> s'arrête là — les pairs d'un fichier partagé répondent en quelques secondes, donc un silence prolongé signifie qu'il n'est pas sur DC (c'est ce qui évite que les recherches de numéros rarement partagés traînent). Les recherches s'exécutent <b>une à la fois</b>, espacées de la pause — les hubs DC limitent le débit, donc les téléchargements en masse sont ralentis (lents mais fiables) plutôt que d'échouer. Une recherche vide peut être retentée <b>Réessais si vide</b> fois, mais <b>laissez cette valeur à 1 (ou 0)</b> : beaucoup de hubs considèrent la même recherche répétée ~3 fois comme du spam et ne renvoient alors plus rien.",
   "stallTimeout": "Délai de blocage d'un téléchargement (ms)",
-  "stallNote": "Abandonne un téléchargement qui ne progresse plus pendant cette durée — un lot sans sources (ou qu'AirDC++ a retiré de sa file) bloquerait sinon le créneau de file indéfiniment."
+  "stallNote": "Abandonne un téléchargement qui ne progresse plus pendant cette durée — un lot sans sources (ou qu'AirDC++ a retiré de sa file) bloquerait sinon le créneau de file indéfiniment.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Source de téléchargement Direct Connect via l’API web d’AirDC++, avec recherche adaptative et packs de plusieurs numéros depuis les listes de fichiers"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "Surveiller les annonces AirDC++"
+      }
+    }
+  }
 }

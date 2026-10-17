@@ -24,5 +24,17 @@
   "retryEmpties": "Reintentos si vacía",
   "searchNote": "Los resultados de DC llegan de los pares a lo largo de unos segundos; la búsqueda termina en cuanto llega una coincidencia fiable o al alcanzar el tope de espera. Una búsqueda que no devuelve <b>nada</b> al llegar a <b>Abandonar si vacía</b> se detiene ahí: los pares de un archivo compartido responden en segundos, así que el silencio prolongado significa que no está en DC (esto evita que las búsquedas de números poco compartidos se eternicen). Las búsquedas se ejecutan <b>de una en una</b>, espaciadas por la pausa: los hubs DC limitan la frecuencia, así que las descargas masivas se ralentizan (lentas pero fiables) en lugar de fallar. Una búsqueda vacía puede reintentarse <b>Reintentos si vacía</b> veces, pero <b>déjalo en 1 (o 0)</b>: muchos hubs marcan la misma búsqueda repetida ~3 veces como spam y entonces no devuelven nada.",
   "stallTimeout": "Tiempo de descarga estancada (ms)",
-  "stallNote": "Abandona una descarga que no avanza durante este tiempo: un lote sin fuentes (o uno que AirDC++ retira de su cola) bloquearía la ranura de la cola para siempre."
+  "stallNote": "Abandona una descarga que no avanza durante este tiempo: un lote sin fuentes (o uno que AirDC++ retira de su cola) bloquearía la ranura de la cola para siempre.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Fuente de descarga Direct Connect mediante la API web de AirDC++, con búsqueda adaptativa y packs de varios números desde listas de archivos"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "Vigilar los anuncios de AirDC++"
+      }
+    }
+  }
 }

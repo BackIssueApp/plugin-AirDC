@@ -24,5 +24,17 @@
   "retryEmpties": "Repetir vazias",
   "searchNote": "Os resultados DC chegam dos pares ao longo de alguns segundos; a pesquisa termina assim que chega uma correspondência segura ou quando se atinge o limite de espera. Uma pesquisa que não devolve <b>nada</b> até <b>Desistir se vazia</b> para aí: os pares de um ficheiro partilhado respondem em segundos, por isso silêncio prolongado significa que não está no DC (é isto que evita que as pesquisas de edições pouco partilhadas se arrastem). As pesquisas correm <b>uma de cada vez</b>, espaçadas pela pausa: os hubs DC limitam o ritmo, por isso os downloads em massa são abrandados (lentos mas fiáveis) em vez de falharem. Uma pesquisa vazia pode ser repetida <b>Repetir vazias</b> vezes, mas <b>mantenha em 1 (ou 0)</b>: muitos hubs tratam a mesma pesquisa repetida ~3 vezes como spam e depois não devolvem nada.",
   "stallTimeout": "Tempo de download parado (ms)",
-  "stallNote": "Desiste de um download sem progresso durante este tempo: um pacote sem fontes (ou um que o AirDC++ retire da sua fila) bloquearia para sempre a posição na fila."
+  "stallNote": "Desiste de um download sem progresso durante este tempo: um pacote sem fontes (ou um que o AirDC++ retire da sua fila) bloquearia para sempre a posição na fila.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Fonte de download Direct Connect através da API web do AirDC++, com pesquisa adaptativa e pacotes de várias edições a partir de listas de ficheiros"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "Vigiar os anúncios do AirDC++"
+      }
+    }
+  }
 }

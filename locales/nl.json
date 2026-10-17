@@ -24,5 +24,17 @@
   "retryEmpties": "Lege opnieuw proberen",
   "searchNote": "DC-resultaten komen over enkele seconden binnen van peers; de zoekopdracht stopt zodra een zekere match binnenkomt of de wachtlimiet is bereikt. Een zoekopdracht die bij <b>Opgeven als leeg</b> <b>niets</b> oplevert, stopt daar: peers van een gedeeld bestand antwoorden binnen seconden, dus aanhoudende stilte betekent dat het niet op DC staat (dit voorkomt dat zoekopdrachten naar zelden gedeelde nummers eindeloos duren). Zoekopdrachten lopen <b>één tegelijk</b>, gespreid met de afkoeltijd: DC-hubs beperken het tempo, dus bulkdownloads worden afgeremd (traag maar betrouwbaar) in plaats van te mislukken. Een lege zoekopdracht kan <b>Lege opnieuw proberen</b> keer worden herhaald, maar <b>houd dit op 1 (of 0)</b>: veel hubs zien dezelfde zoekopdracht ~3 keer herhaald als spam en geven dan toch niets terug.",
   "stallTimeout": "Time-out vastgelopen download (ms)",
-  "stallNote": "Geef een download op die zo lang geen voortgang maakt: een bundel zonder bronnen (of een die AirDC++ uit zijn wachtrij haalt) zou anders de wachtrijplek voor altijd blokkeren."
+  "stallNote": "Geef een download op die zo lang geen voortgang maakt: een bundel zonder bronnen (of een die AirDC++ uit zijn wachtrij haalt) zou anders de wachtrijplek voor altijd blokkeren.",
+  "_shared": {
+    "plugins": {
+      "airdcpp": {
+        "description": "Direct Connect-downloadbron via de AirDC++ Web API, met adaptief zoeken en pakketten met meerdere nummers uit bestandslijsten"
+      }
+    },
+    "jobs": {
+      "airdcpp-watch": {
+        "label": "AirDC++-aankondigingen volgen"
+      }
+    }
+  }
 }
